@@ -1,14 +1,10 @@
-#include "mbed.h"
+#include "mbed.h"              
 
-DigitalOut led1(LED1);
+Serial pc(USBTX, USBRX);
 
-int main()
-{
-    while(1)
-    {
-        led1 = 0;
-        wait(1);
-        led1 = 1;
-        wait(1);
+int main() {
+	pc.printf("Muestra en la pantalla todo lo que escribas\n");
+    while(1) {
+        pc.putc(pc.getc());
     }
 }
